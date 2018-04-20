@@ -38,7 +38,7 @@ resource "aws_s3_bucket_policy" "private" {
       "Resource": ["arn:aws:s3:::${var.s3_fqdn}",
                    "arn:aws:s3:::${var.s3_fqdn}/*"],
       "Principal": {
-        "AWS": ["arn:aws:iam::${var.aws_account_id}:user/${var.aws_username}"]
+        "AWS": ["${var.role_arn}"]
       }
     }
   ]
@@ -61,7 +61,7 @@ resource "aws_s3_bucket_policy" "public" {
       "Resource": ["arn:aws:s3:::${var.s3_fqdn}",
                    "arn:aws:s3:::${var.s3_fqdn}/*"],
       "Principal": {
-        "AWS": ["arn:aws:iam::${var.aws_account_id}:user/${var.aws_username}"]
+        "AWS": ["${var.role_arn}"]
       }
     },
     {

@@ -2,12 +2,8 @@ variable "s3_fqdn" {
   description = "fqdn for s3 bucket"
 }
 
-variable "aws_account_id" {
-  description = "AWS Account Id"
-}
-
-variable "aws_username" {
-  description = "AWS Username"
+variable "role_arn" {
+  description = "The arn of the role to grant write access to"
 }
 
 variable "files" {
