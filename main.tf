@@ -27,7 +27,6 @@ resource "aws_s3_bucket" "this" {
 resource "aws_s3_bucket_policy" "private" {
   count  = "${var.allow_public ? 0 : 1}"
   bucket = "${aws_s3_bucket.this.id}"
-  force_destroy = "true"
 
   policy = <<EOF
 {
@@ -51,7 +50,6 @@ EOF
 resource "aws_s3_bucket_policy" "public" {
   count  = "${var.allow_public ? 1 : 0}"
   bucket = "${aws_s3_bucket.this.id}"
-  force_destroy = "true"
 
   policy = <<EOF
 {
